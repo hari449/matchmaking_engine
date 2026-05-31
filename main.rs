@@ -9,7 +9,6 @@ const NUM_BUCKETS: usize = 100;
 const PLAYERS_PER_MATCH: usize = 10;
 const TEAM_SIZE: usize = 5;
 
-// --- 1. CORE DATA STRUCTURES ---
 #[derive(Clone, Debug)]
 pub struct Player {
     pub id: usize,
@@ -28,7 +27,6 @@ pub struct Matchmaker {
     pub metrics: Arc<Metrics>,
 }
 
-// --- 2. MATCHMAKING ENGINE ---
 impl Matchmaker {
     pub fn new() -> Arc<Self> {
         let mut buckets = Vec::with_capacity(NUM_BUCKETS);
@@ -113,7 +111,6 @@ impl Matchmaker {
     }
 }
 
-// --- 3. SIMULATION SCRIPT ---
 #[tokio::main]
 async fn main() {
     println!("Starting 5v5 Matchmaking Engine Simulation...");
